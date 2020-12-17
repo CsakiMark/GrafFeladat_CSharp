@@ -10,6 +10,7 @@ namespace GrafFeladat_CSharp
     {
         static void Main(string[] args)
         {
+         
             var graf = new Graf(6);
 
             graf.Hozzaad(0, 1);
@@ -20,8 +21,10 @@ namespace GrafFeladat_CSharp
             graf.Hozzaad(4, 5);
             graf.Hozzaad(2, 4);
 
-            Console.WriteLine(graf);
-            Console.ReadLine();
+            Console.WriteLine("Szélességi bejárás 0 kezdőpontból:");
+            graf.szelessegiBejar(0);
+
+            Console.ReadKey();
         }
     }
 
