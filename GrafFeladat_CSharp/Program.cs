@@ -8,6 +8,16 @@ namespace GrafFeladat_CSharp
 {
     class Program
     {
+        static void feher()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+
+        static void zold()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+        }
         static void Main(string[] args)
         {
          
@@ -21,8 +31,14 @@ namespace GrafFeladat_CSharp
             graf.Hozzaad(4, 5);
             graf.Hozzaad(2, 4);
 
+            zold();
             Console.WriteLine("Szélességi bejárás 0 kezdőpontból:");
+            feher();
             graf.szelessegiBejar(0);
+            zold();
+            Console.WriteLine("\nMélységi bejárás 0 kezdőpontból:");
+            feher();
+            graf.melysegiBejar(0);
 
             Console.ReadKey();
         }
