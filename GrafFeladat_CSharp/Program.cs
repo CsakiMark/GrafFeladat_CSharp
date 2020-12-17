@@ -24,4 +24,5 @@ namespace GrafFeladat_CSharp
             Console.ReadLine();
         }
     }
+
 }
