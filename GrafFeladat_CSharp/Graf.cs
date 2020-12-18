@@ -152,6 +152,35 @@ namespace GrafFeladat_CSharp
         }
 
 
+        public bool Osszefuggo()
+        {
+            var bejart = new HashSet<int>();
+            var kovetkezok = new Queue<int>();
+            kovetkezok.Enqueue(0);
+            bejart.Add(0);
+            while (kovetkezok.Count > 0)
+            {
+                var k = kovetkezok.Dequeue();
+                foreach (El el in this.elek)
+                {
+                    if ((el.Csucs1 == k) && (!bejart.Contains(el.Csucs2)))
+                    {
+                        bejart.Add(el.Csucs2);
+                        kovetkezok.Enqueue(el.Csucs2);
+                    }
+                }
+            }
+            if (bejart.Count == this.csucsokSzama)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
 
         public override string ToString()
         {
