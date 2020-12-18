@@ -40,6 +40,14 @@ namespace GrafFeladat_CSharp
             feher();
             graf.melysegiBejar(0);
 
+
+            zold();
+            Console.WriteLine("\nA mohó algoritmus színezései:");
+            feher();
+            foreach (int kulcs in graf.mohoSzinezes().Keys)
+            {
+                Console.WriteLine("csúcs: " + kulcs + ", szín: " + graf.mohoSzinezes()[kulcs]);
+            }
             Console.ReadKey();
         }
     }

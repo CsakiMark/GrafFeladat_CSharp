@@ -108,6 +108,49 @@ namespace GrafFeladat_CSharp
             }
         }
 
+        public Dictionary<int, int> mohoSzinezes()
+        {
+            var szinezes = new Dictionary<int, int>();
+            int maxSzin = this.csucsokSzama;
+            for (int aktCsucs = 0; aktCsucs < this.csucsokSzama; aktCsucs++)
+            {
+                var valaszthatoSzinek = new HashSet<int>();
+                for (int i = 0; i < this.csucsokSzama; i++)
+                {
+                    valaszthatoSzinek.Add(i);
+                }
+                foreach (El el in this.elek)
+                {
+                    if (el.Csucs1 == aktCsucs)
+                    {
+                        if (szinezes.ContainsKey(el.Csucs2))
+                        {
+                            var szin = szinezes[el.Csucs2];
+                            valaszthatoSzinek.Remove(szin);
+                        }
+                    }
+                }
+                var valasztottSzin = Min(valaszthatoSzinek);
+                szinezes.Add(aktCsucs, valasztottSzin);
+            }
+            return szinezes;
+        }
+
+
+
+        public int Min(HashSet<int> halmaz)
+        {
+            int min = int.MaxValue;
+            foreach (int elem in halmaz)
+            {
+                if (elem < min)
+                {
+                    min = elem;
+                }
+            }
+            return min;
+        }
+
 
 
         public override string ToString()
