@@ -43,6 +43,12 @@ namespace GrafFeladat_CSharp
             zold();
             Console.WriteLine("A gráf összefüggősége: " + graf.Osszefuggo());
             feher();
+            Console.WriteLine();
+            zold();
+            Console.WriteLine("A gráf feszítőfája:");
+            feher();
+            Console.WriteLine(graf.feszitofa().ToString());
+            
 
             zold();
             Console.WriteLine("\nA mohó algoritmus színezései:");
